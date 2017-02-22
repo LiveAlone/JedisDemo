@@ -1,12 +1,10 @@
 package org.yqj.jedis.demo;
 
-import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.stereotype.Component;
-import redis.clients.jedis.Jedis;
 
 /**
  * Created by yaoqijun.
@@ -17,7 +15,7 @@ import redis.clients.jedis.Jedis;
 @Component
 @Slf4j
 public class RunCommanLine implements CommandLineRunner{
-
+    
     @Autowired
     private RedisConnectionFactory redisConnectionFactory;
 
