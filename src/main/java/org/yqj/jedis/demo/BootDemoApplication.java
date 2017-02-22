@@ -1,8 +1,10 @@
 package org.yqj.jedis.demo;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.stereotype.Controller;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * Created by yaoqijun.
@@ -10,8 +12,12 @@ import org.springframework.stereotype.Controller;
  * Email:yaoqj@terminus.io
  * Descirbe:
  */
-@SpringBootApplication
-@Controller
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
+//@Import(value = {
+//        MyConfiguration.class
+//})
 public class BootDemoApplication {
     public static void main(String[] args) {
 //        SpringApplication.run(BootDemoApplication.class, args);
@@ -20,10 +26,4 @@ public class BootDemoApplication {
                 .sources(BootDemoApplication.class)
                 .run(args);
     }
-
-//    @RequestMapping(value = "/index", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-//    @ResponseBody
-//    public String indexPage(){
-//        return "this is test index paging info";
-//    }
 }

@@ -1,5 +1,4 @@
-Spring Boot Demo Application
+Spring Jedis demo test
 
-Spring Boot 开发基础模板系你先
+测试 Jedis 对应的Redis 客户端测试的方式。
 
-开发Spring Boot， APP WEB 从该模板测试开始
