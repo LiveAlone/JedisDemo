@@ -1,11 +1,11 @@
 package org.yqj.jedis.demo.springdata;
 
-import com.google.common.base.Charsets;
-import com.sun.tools.javac.util.ArrayUtils;
 import org.apache.commons.codec.binary.Hex;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Pipeline;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * Created by yaoqijun on 2016/12/6.
@@ -13,11 +13,30 @@ import java.util.Arrays;
 public class SingleTest {
     public static void main(String[] args) throws Exception {
 //        simple();
-        testHexCompress();
+//        testHexCompress();
+        zsetTest();
+    }
+
+    private static void zsetTest() {
+//        Jedis jedis = new Jedis("localhost", 6379);
+//        IntStream.range(1, 10).forEach(index -> {
+//            jedis.zadd("testSet", System.currentTimeMillis(), String.valueOf(index));
+//        });
+//        System.out.println(jedis.zrevrange("testSet", 0, -1));
+//        System.out.println(jedis.zrem("testSet", String.valueOf(1)));
+//        System.out.println(jedis.zrem("testSet", String.valueOf(100)));
+
+//        Pipeline pip = jedis.pipelined();
+//        pip.zrem("testSet", String.valueOf(5));
+//        pip.zrem("testSet", String.valueOf(6));
+//        pip.zrem("testSet", String.valueOf(4));
+//        System.out.println(pip.syncAndReturnAll());
+//        System.out.println(jedis.zrem("testSet", String.valueOf(7), String.valueOf(8), String.valueOf(9), String.valueOf(6)));
     }
 
     /**
      * 通过 byte 字节流方式， 获取对应的数组方式
+     *
      * @throws Exception
      */
     private static void testHexCompress() throws Exception {
@@ -44,8 +63,8 @@ public class SingleTest {
 ////
         byte[] secondFollowValue = jedis.get("test3".getBytes());
         int splitpos = 0;
-        while (splitpos < secondFollowValue.length){
-            if (Byte.valueOf("1").equals(secondFollowValue[splitpos])){
+        while (splitpos < secondFollowValue.length) {
+            if (Byte.valueOf("1").equals(secondFollowValue[splitpos])) {
                 break;
             }
             splitpos += 1;
